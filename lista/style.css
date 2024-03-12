@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: rgb(71, 71, 248);
+    color: white; 
+    text-align: center;
+    padding: 10px;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  div {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
