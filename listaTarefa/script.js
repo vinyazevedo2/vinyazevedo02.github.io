@@ -13,8 +13,6 @@ function addTask() {
             <button class="editButton" onClick="editTask(this)">Editar</button>
             <button class="deleteButton" onClick="deleteTask(this)">Remover</button>
             <button class="conclButton" onClick="deleteTask(this)">Concluido</button>
-
-
         `;
         tasklist.appendChild(li);
         taskInput.value = "";     
@@ -25,8 +23,6 @@ function addTask() {
         
     }
 }
-
-
 function editTask(button) {
     const li = button.parentElement;
     const span = li.querySelector("span");

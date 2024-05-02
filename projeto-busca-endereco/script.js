@@ -7,7 +7,7 @@ $(document).ready(function(){
         const cep = $('#cep').val();
 
         if(cep.length !== 8){
-            alert('Digite o cep corretamente');
+            $('body').find("#resultados").html('<div class="msg-resultado">Digite o cep corretamente</div>');
             return false;
         }
 
@@ -37,9 +37,25 @@ $(document).ready(function(){
         $('#resultados').html('<img src="carregando.gif"/>');
     }
     $('body').on('click', '#modo-noturno', function(){
-        alert(123);
         $('body').toggleClass('dark-mode')
+        $(this).toggleClass('apagada');
+
+    if(Cookies.get('modo-noturno' == 'on')){
+       Cookies.set('modo-noturno', 'off');          
+    }else{
+       Cookies.set('modo-noturno', 'on');
+     }
 
 });
 
+$('body').on('input', '#cep', function(){
+    $(this).val($(this).val().replace(/\D/g,'')); //nesta linha, o campo irá aceitar somente os numeros
+})
+
+if(Cookies.get('modo-noturno' == 'on')){
+    $('body').toggleClass('dark-mode');
+    $('body').find('container').toggleClass('dark-mode'); 
+    $('body').find('lampada').toggleClass('apagada'); 
+
+    }
 })
