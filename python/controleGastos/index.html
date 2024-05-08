@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos</title>
+</head>
+<body>
+    <h1>Controle de Gastos</h1>
+    <h2>Saldo Atual: <span id="saldo">0</span></h2>
+    <h2>Registrar Gasto</h2>
+    <input type="text" id="valor_gasto" placeholder="Valor">
+    <input type="text" id="descricao_gasto" placeholder="Descrição">
+    <input type="text" id="data_gasto" placeholder="Data (yyyy-mm-dd)">
+    <button onclick="registrarGasto()">Registrar Gasto</button>
+    <h2>Registrar Receita</h2>
+    <input type="text" id="valor_receita" placeholder="Valor">
+    <input type="text" id="descricao_receita" placeholder="Descrição">
+    <input type="text" id="data_receita" placeholder="Data (yyyy-mm-dd)">
+    <button onclick="registrarReceita()">Registrar Receita</button>
+    <h2>Histórico de Transações</h2>
+    <ul id="historico">
+    </ul>
+
+    <script>
+        function registrarGasto() {
+            const valor = document.getElementById("valor_gasto").value;
+            const descricao = document.getElementById("descricao_gasto").value;
+            const data = document.getElementById("data_gasto").value;
+
+            fetch('/registrar_gasto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ valor, descricao, data })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("saldo").innerText = data.saldo;
+                document.getElementById("valor_gasto").value = "";
+                document.getElementById("descricao_gasto").value = "";
+                document.getElementById("data_gasto").value = "";
+            });
+        }
+
+        function registrarReceita() {
+            const valor = document.getElementById("valor_receita").value;
+            const descricao = document.getElementById("descricao_receita").value;
+            const data = document.getElementById("data_receita").value;
+
+            fetch('/registrar_receita', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ valor, descricao, data })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("saldo").innerText = data.saldo;
+                document.getElementById("valor_receita").value = "";
+                document.getElementById("descricao_receita").value = "";
+                document.getElementById("data_receita").value = "";
+            });
+        }
+
+        function carregarHistorico() {
+            fetch('/historico')
+            .then(response => response.json())
+            .then(data => {
+                const historicoUl = document.getElementById("historico");
+                historicoUl.innerHTML = "";
+                data.historico.forEach(transacao => {
+                    const li = document.createElement("li");
+                    li.textContent = `Data: ${transacao.data}, Tipo: ${transacao.tipo}, Descrição: ${transacao.descricao}, Valor: ${transacao.valor}`;
+                    historicoUl.appendChild(li);
+                });
+            });
+        }
+
+        carregarHistorico();
+    </script>
+</body>
+</html>

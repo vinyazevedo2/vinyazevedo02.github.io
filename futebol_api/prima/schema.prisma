@@ -1,0 +1,26 @@
+generator client {
+    provider = "prisma-client"
+}
+
+model Game {
+    id            Int      @id @default(autoincrement())
+    location      String
+    competition   String
+    type          String
+    homeTeam      String
+    awayTeam      String
+    homeTeamGoals Int
+    awayTeamGoals Int
+    minutesAdded  Int
+    players       Player[]
+}
+
+model Player {
+    id          Int    @id @default(autoincrement())
+    name        String
+    position    String
+    yellowCards Int
+    redCards    Int
+    gameId      Int?
+    game        Game?  @relation(fields: [gameId], references: [id])
+}

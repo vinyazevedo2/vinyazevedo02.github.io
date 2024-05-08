@@ -1,0 +1,147 @@
+/*
+  --text-color: #494D4B;
+	--text-color-header: #808080;
+  --button-new: #5D5FEF;
+  --button-valid: #04D361;
+	--button-disabled: #ABABAB;
+  --border: #E6E8EB;
+}*/
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between
+}
+
+div {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+#description {
+    width: 60%;
+}
+
+
+#branco {
+    width: 70%;
+    background-color: white;
+    float: right;
+    flex-wrap: wrap;
+}
+
+#roxo {
+    width: 30%;
+    background-color: #9164FA;
+}
+
+#corpo {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#corpo img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 25px;
+}
+
+#roxo button {
+    width: 150px;
+    height: 50px;
+    background-color: #5D5FEF;
+    border-radius: 10px;
+    border-color: #E6E8EB;
+    text-align: center;
+    color: white;
+}
+
+#roxo h1 {
+    display: flex;
+    color: white;
+    font-size: 35px;
+    margin: 50px 11s0px;
+
+
+}
+
+
+#roxo p {
+    color: white;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.digitado {
+    width: 150px;
+    height: 50px;
+    background-color: #5D5FEF;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+}
+
+#roxo button {
+    width: 150px;
+    height: 50px;
+    background-color: #04D361;
+    border-radius: 10px;
+    margin-left: 20px;
+    border-color: white;
+    text-align: center;
+    color: white;
+
+
+}
+
+
+#operacao {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+#operacao div {
+    width: 90px;
+    height: 50px;
+    background-color: #5D5FEF;
+    color: white;
+    border-radius: 10px;
+    flex-direction: row;
+}
+
+#resultado {
+    display: flex;
+    justify-content: center;
+}

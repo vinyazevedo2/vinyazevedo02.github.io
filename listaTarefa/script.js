@@ -12,7 +12,7 @@ function addTask() {
             <span>${maxText}</span>
             <button class="editButton" onClick="editTask(this)">Editar</button>
             <button class="deleteButton" onClick="deleteTask(this)">Remover</button>
-            <button class="conclButton" onClick="deleteTask(this)">Concluido</button>
+            <button class="conclButton" onClick="deleteTask(this)">Concluído</button>            
         `;
         tasklist.appendChild(li);
         taskInput.value = "";     

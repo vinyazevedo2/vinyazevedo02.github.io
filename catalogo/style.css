@@ -1,0 +1,32 @@
+/*min-height: minimo de altura*/
+*{
+
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header{
+    background-color: blue;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    color:white;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+section div{   
+    border: 1px solid black;
+    border-radius: 5 px;    
+}
